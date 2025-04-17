@@ -1,213 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="gsfm_description">
-<link name="world_link"/>
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="gsfm_description">
 
+  <link name="world_link" />
   <joint name="world_to_base" type="fixed">
-    <parent link="world_link"/>
-    <child link="base_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world_link" />
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>
-  <link
-    name="base_link">
+
+  <link name="base_link">
     <inertial>
-      <origin
-        xyz="-0.00384554710817432 0.00858554498823808 -0.025754005892457"
-        rpy="0 0 0" />
-      <mass
-        value="0.397638285996351" />
-      <inertia
-        ixx="0.00140449326145997"
-        ixy="4.57975126751608E-08"
-        ixz="4.4867995863752E-09"
-        iyy="0.00119308023227632"
-        iyz="-3.26775553031169E-09"
-        izz="0.00256630274510629" />
+      <origin xyz="-0.00384554710665571 0.00858554498742772 -0.0257540058924568" rpy="0 0 0" />
+      <mass value="0.397638285996351" />
+      <inertia ixx="0.00140449326145997" ixy="4.57975120748758E-08" ixz="4.48679958668766E-09" iyy="0.00119308023227631" iyz="-3.2677555262255E-09" izz="0.00256630274510629" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gsfm_description/meshes/base_link.STL" />
+        <mesh filename="package://gsfm_description/meshes/base_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gsfm_description/meshes/base_link.STL" />
+        <mesh filename="package://gsfm_description/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
-  <link
-    name="lidar_Link">
+  <link name="laser_link">
     <inertial>
-      <origin
-        xyz="-0.00207366821127795 -3.13393386247723E-05 -0.0272592943990869"
-        rpy="0 0 0" />
-      <mass
-        value="0.208750664901465" />
-      <inertia
-        ixx="0.000140221415081061"
-        ixy="8.46088329910782E-09"
-        ixz="2.51140585180267E-06"
-        iyy="0.00013732443422994"
-        iyz="-4.57939634057416E-08"
-        izz="9.3125548369429E-05" />
+      <origin xyz="-0.00207366821030121 -3.13393386247446E-05 -0.0272592943990869" rpy="0 0 0" />
+      <mass value="0.208750664901466" />
+      <inertia ixx="0.000140221415081061" ixy="8.46088329914073E-09" ixz="2.5114058518027E-06" iyy="0.00013732443422994" iyz="-4.57939634056678E-08" izz="9.31255483694291E-05" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gsfm_description/meshes/lidar_Link.STL" />
+        <mesh filename="package://gsfm_description/meshes/laser_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gsfm_description/meshes/lidar_Link.STL" />
+        <mesh filename="package://gsfm_description/meshes/laser_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="lidar_Joint"
-    type="fixed">
-    <origin
-      xyz="-0.0423409050707997 -0.0300177645431443 0.0653652915318988"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="lidar_Link" />
-    <axis
-      xyz="0 0 0" />
+  <joint name="laser_joint" type="fixed">
+    <origin xyz="-0.0423409050707997 -0.0300177645431443 0.0653652915318988" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="laser_link" />
+    <axis xyz="0 0 0" />
   </joint>
-  <link
-    name="depth_Link">
+  <link name="camera_link">
     <inertial>
-      <origin
-        xyz="-0.0160046255937588 -0.0375030294495114 -0.004700507951464"
-        rpy="0 0 0" />
-      <mass
-        value="0.220446942054854" />
-      <inertia
-        ixx="0.00040610193932044"
-        ixy="4.49920874895974E-08"
-        ixz="1.58793349784756E-07"
-        iyy="4.67237503386647E-05"
-        iyz="2.02435090041219E-09"
-        izz="0.000425228489510417" />
+      <origin xyz="-0.0160046254646865 -0.0375030294488165 -0.00470050800215642" rpy="0 0 0" />
+      <mass value="0.220446940128425" />
+      <inertia ixx="0.000406101931309108" ixy="4.49920896189193E-08" ixz="1.58793308343964E-07" iyy="4.67237499084941E-05" iyz="2.0239262733308E-09" izz="0.000425228480870778" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gsfm_description/meshes/depth_Link.STL" />
+        <mesh filename="package://gsfm_description/meshes/camera_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gsfm_description/meshes/depth_Link.STL" />
+        <mesh filename="package://gsfm_description/meshes/camera_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="depth_Joint"
-    type="fixed">
-    <origin
-      xyz="0.0600690949305007 0.0460822729755588 0.0391258110332986"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="depth_Link" />
-    <axis
-      xyz="0 0 0" />
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.0600690949305007 0.0460822729755588 0.039125811033298596" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="camera_link" />
+    <axis xyz="0 0 0" />
   </joint>
-  <link
-    name="imu_Link">
+  <link name="imu_link">
     <inertial>
-      <origin
-        xyz="-0.032724636371426 -0.0362280499312092 -0.000500000287073307"
-        rpy="0 0 0" />
-      <mass
-        value="0.0189445441258604" />
-      <inertia
-        ixx="3.3090442849036E-05"
-        ixy="-1.01036746158659E-08"
-        ixz="-1.061881671937E-13"
-        iyy="2.70989771482075E-05"
-        iyz="1.14356493497984E-13"
-        izz="6.01862625767277E-05" />
+      <origin xyz="-0.0215090949287321 -0.0447830082297362 0.0407741889670015" rpy="0 0 0" />
+      <mass value="0.943685156899018" />
+      <inertia ixx="0.00351666454931782" ixy="-0.000358480659829109" ixz="-1.72011948894583E-05" iyy="0.00382689490264757" iyz="0.000265016547916053" izz="0.00513167733243875" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gsfm_description/meshes/imu_Link.STL" />
+        <mesh filename="package://gsfm_description/meshes/imu_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gsfm_description/meshes/imu_Link.STL" />
+        <mesh filename="package://gsfm_description/meshes/imu_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="imu_Joint"
-    type="fixed">
-    <origin
-      xyz="0.0215090949305007 0.0447830082299264 -0.0407741889667037"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="imu_Link" />
-    <axis
-      xyz="0 0 0" />
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="0.0215090949305007 0.0447830082299264 -0.0407741889667037" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="imu_link" />
+    <axis xyz="0 0 0" />
   </joint>
 </robot>
