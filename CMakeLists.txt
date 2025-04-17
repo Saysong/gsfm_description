@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(whisker_project)
+project(gsfm_description)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -22,7 +22,7 @@ install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME}/config)
 
 # Install URDF files
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/urdf/whisker_project.urdf  # Replace with your URDF filename
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/urdf/gsfm_description.urdf  # Replace with your URDF filename
   DESTINATION share/${PROJECT_NAME}/urdf)
 
 # Install mesh files (you might need to list individual files or use glob)
